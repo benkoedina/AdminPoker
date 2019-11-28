@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/frgamentM"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adminpoker.Fragments.MainFragment">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose what you want to do!"
+            android:gravity="center"
+            android:fontFamily="cursive"
+            android:textSize="35dp"
+            android:textColor="@color/colorPrimary"
+            />
+
+
+        <Button
+        android:id="@+id/bt_check_answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:text="Check the groups and the answers!"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="15dp"
+        />
+
+        <Button
+            android:id="@+id/bt_add_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
+            android:text="Add a new Group with questions!"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp"
+            />
+    </LinearLayout>
+</FrameLayout>

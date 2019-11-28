@@ -7,14 +7,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.adminpoker.Fragments.FragmentAddGroup">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:orientation="vertical"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Add a New Question!"
@@ -25,13 +28,13 @@
             />
 
         <EditText
-        android:id="@+id/et_question"
+        android:id="@+id/et_question1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:hint="Type the Question"
+        android:hint="Type the Question1"
         android:textColorHint="@color/colorPrimary"
         android:fontFamily="cursive"
         android:layout_marginLeft="10dp"
@@ -40,14 +43,125 @@
         android:layout_marginEnd="10dp"
         android:textSize="25dp"
         />
+        <RadioGroup
+            android:id="@+id/groupradio1"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activ1"
+                android:text="active"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inactiv1"
+                android:text="inactiv"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+        </RadioGroup>
+
         <EditText
-            android:id="@+id/et_status"
+            android:id="@+id/et_question2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:hint="The Status of the Question"
+            android:hint="Type the Question2"
+            android:textColorHint="@color/colorPrimary"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="25dp"
+            />
+        <RadioGroup
+            android:id="@+id/groupradio2"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activ2"
+                android:text="active"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inactiv2"
+                android:text="inactiv"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+        </RadioGroup>
+        <EditText
+            android:id="@+id/et_question3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:hint="Type the Question3"
+            android:textColorHint="@color/colorPrimary"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="25dp"
+            />
+        <RadioGroup
+            android:id="@+id/groupradio3"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activ3"
+                android:text="active"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inactiv3"
+                android:text="inactiv"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+        </RadioGroup>
+        <EditText
+            android:id="@+id/et_question4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:hint="Type the Question4"
             android:textColorHint="@color/colorPrimary"
             android:fontFamily="cursive"
             android:layout_marginLeft="10dp"
@@ -57,6 +171,32 @@
             android:textSize="25dp"
             />
 
+        <RadioGroup
+            android:id="@+id/groupradio4"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activ4"
+                android:text="active"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inactiv4"
+                android:text="inactiv"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+        </RadioGroup>
         <Button
             android:id="@+id/bt_add_question"
             android:layout_width="match_parent"
@@ -71,4 +211,5 @@
             />
 
     </LinearLayout>
+    </ScrollView>
 </FrameLayout>
