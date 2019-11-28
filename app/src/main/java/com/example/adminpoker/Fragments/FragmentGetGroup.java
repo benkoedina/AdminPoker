@@ -32,7 +32,9 @@ public class FragmentGetGroup extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+    //FragmentGetGroup => lekerjuk az adott group_id-t amelyiket megakarja vizsgalni
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
 
         firebaseDatabase = firebaseDatabase.getInstance();
@@ -45,7 +47,7 @@ public class FragmentGetGroup extends Fragment {
         bt_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(et_groupId.getText().toString().isEmpty())
+                if(et_groupId.getText().toString().isEmpty()) //ellenoirzzuk hogy helyes-e
                 {
                     Toast.makeText(getContext(),"Insert please", Toast.LENGTH_SHORT).show();
                 }
@@ -54,14 +56,16 @@ public class FragmentGetGroup extends Fragment {
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            Group group = dataSnapshot.child(id).getValue(Group.class);
+                            Group group = dataSnapshot.child(id).getValue(Group.class); //adott group_idra lekerjuk a group-ot
 
-                            if(group.equals(null))
+                            if(group==null)
                             {
                                 Toast.makeText(getContext(),"This is not a valid group id!", Toast.LENGTH_SHORT).show();
+                                //ha nincs ilyen akkor szolunk
                             }
                             else
                             {
+                                //tovabb adjuk a kovi fragmentnek a group_id-t
                                 Bundle bundle = new Bundle();
                                 bundle.putString("groupid",id);
                                 QuestionListFragment qf = new QuestionListFragment();

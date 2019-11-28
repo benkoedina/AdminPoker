@@ -17,9 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.ViewHolder> {
 
+    //AnswerList Adapter => kiirja minden kerdesre adott valaszokat a felhasznalojukkat egyutt
+
         private List<String > answerList;
         private Context context;
-
 
 
         public AnswerListAdapter(List<String> answerList, Context context) {

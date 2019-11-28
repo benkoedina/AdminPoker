@@ -26,6 +26,8 @@ public class FragmentAddGroup extends Fragment {
     static String status;
 
 
+    //FragmentAddGroup => Group letrehozasat megvalosito Fragment
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class FragmentAddGroup extends Fragment {
         bt_add = view.findViewById(R.id.bt_add_group);
         et_groupid = view.findViewById(R.id.et_groupid);
 
+        //aktiv/nem aktiv group megadasa RadioButtonnal
         RadioGroup radioGroup = view.findViewById(R.id.groupradio);
         if (radioGroup != null) {
             radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -56,6 +59,7 @@ public class FragmentAddGroup extends Fragment {
             @Override
             public void onClick(View view) {
 
+                //elenorizzuk az ures mezot
                 if(et_groupid.getText().toString().isEmpty())
                 {
                     Toast.makeText(getContext(),"Please Insert a Group Id!", Toast.LENGTH_SHORT).show();
@@ -73,6 +77,7 @@ public class FragmentAddGroup extends Fragment {
                     {
                         s=false;
                     }
+                    //tovabb adjuk a groupot es a statust a kovetkezo fragmentnek ahol majd elfogjuk tarolni adatbazisba
                     bundle.putBoolean("status",s);
                     bundle.putString("group_id",et_groupid.getText().toString());
                     FragmentAddQuestion addQuestion = new FragmentAddQuestion();

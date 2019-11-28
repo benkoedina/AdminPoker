@@ -18,6 +18,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class QuestionListAdapter extends RecyclerView.Adapter<QuestionListAdapter.ViewHolder> {
 
+    //QuestionListAdapter => Klistazza az adott group-hoz tartozo osszes kerdest
+    
+
     private List<Question> questionList;
     private Context context;
     onClickInterface onClickInterface;

@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainFragment extends Fragment {
 
+    //MainFragment => Menu fele, ahol donteni tud, hogy hozza ad group-ot, vagy megtekint group-ot az admin
+
     Button bt_view;
     Button bt_add;
 
@@ -31,6 +33,7 @@ public class MainFragment extends Fragment {
         bt_view = view.findViewById(R.id.bt_check_answers);
         bt_add = view.findViewById(R.id.bt_add_group);
 
+        //hozza adas => tovabb visz a hozza ad fragmentre
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +45,7 @@ public class MainFragment extends Fragment {
             }
         });
 
+        //megtekintes => tovabb visz a kerdesek megtekinteset megvalosito fragmentre
         bt_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

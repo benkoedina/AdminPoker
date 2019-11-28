@@ -45,7 +45,8 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if (et_name.getText().toString().isEmpty() || (et_password.toString().isEmpty())) {
+
+                if (et_name.getText().toString().isEmpty() || (et_password.toString().isEmpty())) { //input ellenorzes
 
                     Toast.makeText(getContext(), "Fields cannot be empty!", Toast.LENGTH_SHORT).show();
                 } else {
@@ -53,8 +54,9 @@ public class LoginFragment extends Fragment {
                     final String password=  et_password.getText().toString();
                     final String name = et_name.getText().toString();
 
-                    if(password.equals("12345") && name.equals("benkoedina"))
+                    if(password.equals("12345") && name.equals("benkoedina")) //admin bejelentkezes
                     {
+                        //ha jo, kovetkezo fragment
                          MainFragment mainFragment = new MainFragment();
                         FragmentTransaction fr = getFragmentManager().beginTransaction();
                         fr.replace(R.id.container, mainFragment);
@@ -63,6 +65,7 @@ public class LoginFragment extends Fragment {
                     }
                     else
                     {
+                        //ha nem jo, ujra bekeri
                         Toast.makeText(getContext(), "Passwords or User Name is INCORRECT!", Toast.LENGTH_SHORT).show();
                     }
 

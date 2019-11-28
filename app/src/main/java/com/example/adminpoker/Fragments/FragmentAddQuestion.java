@@ -28,6 +28,7 @@ public class FragmentAddQuestion extends Fragment {
 
     private String status1,status2,status3,status4;
 
+    //FragmentAddQuestion => itt adhatunk hozza a group-hoz ot kerdest es tudjuk beallitani a statusz-t
     public FragmentAddQuestion(){}
 
     @Override
@@ -41,6 +42,7 @@ public class FragmentAddQuestion extends Fragment {
         firebaseDatabase = firebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
+        // adatok bekerese es validalasa
         Button bt_add = view.findViewById(R.id.bt_add_question);
         final EditText et_q1 = view.findViewById(R.id.et_question1);
         final EditText et_q2 = view.findViewById(R.id.et_question2);
@@ -48,7 +50,7 @@ public class FragmentAddQuestion extends Fragment {
         final EditText et_q4 = view.findViewById(R.id.et_question4);
 
 
-
+        //Radio Button-ok ellenorzese
         RadioGroup radioGroup1 = view.findViewById(R.id.groupradio1);
         if (radioGroup1 != null) {
             radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -93,30 +95,41 @@ public class FragmentAddQuestion extends Fragment {
                 }
             });
         }
+
+
+        //kivesszuk a masik fragment altal kuldott group adatokat
+
         Bundle bundle = this.getArguments();
         final String group_id = bundle.getString("group_id");
         final Boolean group_status = bundle.getBoolean("status");
         bt_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String q1 = et_q1.getText().toString();
                 String q2 = et_q2.getText().toString();
                 String q3 = et_q3.getText().toString();
                 String q4 = et_q4.getText().toString();
 
+                //Question tomb letrehozasa
                 ArrayList<Question> questions = new ArrayList<>();
 
+                // question objektumok letrehozasa
                 Question question1 = new Question(0,q1,status1);
                 Question question2 = new Question(1,q2,status2);
                 Question question3 = new Question(2,q3,status3);
                 Question question4 = new Question(3,q4,status4);
 
+                //hozza adjuk a tombhoz
                 questions.add(question1);
                 questions.add(question2);
                 questions.add(question3);
                 questions.add(question4);
 
+                // group objektum letrehozasa
                 Group group = new Group(group_id,group_status,questions);
+
+                // hozza adjuk az adatbazishoz
                 databaseReference.child(group.getId()).setValue(group);
 
                 Toast.makeText(getContext(),"Added Successfully",Toast.LENGTH_LONG).show();
