@@ -1,26 +1,36 @@
 package com.example.adminpoker.Models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Question {
+
     private int id;
     private String question;
     private String status;
     private LocalDateTime time;
+    private ArrayList<User> users;
 
-
-    public Question(int id, String question, String status, LocalDateTime time) {
+    public Question(int id, String question, String status, LocalDateTime time, ArrayList<User> users) {
         this.id = id;
         this.question = question;
         this.status = status;
         this.time = time;
+        this.users = users;
     }
     public Question(){}
 
+    public Question(int id, String question, String status, ArrayList<User> users) {
+        this.id = id;
+        this.question = question;
+        this.status = status;
+        this.users = users;
+    }
     public Question(int id, String question, String status) {
         this.id = id;
         this.question = question;
         this.status = status;
+
     }
 
     @Override
@@ -30,6 +40,7 @@ public class Question {
                 ", question='" + question + '\'' +
                 ", status=" + status +
                 ", time=" + time +
+                ", users=" + users +
                 '}';
     }
 
@@ -63,5 +74,13 @@ public class Question {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
     }
 }

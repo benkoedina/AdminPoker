@@ -46,12 +46,12 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-             /*   FragmentAddGroup addGroupd = new FragmentAddGroup();
+                FragmentGetGroup gg = new FragmentGetGroup();
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.container, addGroupd);
+                fr.replace(R.id.container, gg);
                 fr.addToBackStack(null);
                 fr.commit();
-                */
+
             }
         });
         return view;

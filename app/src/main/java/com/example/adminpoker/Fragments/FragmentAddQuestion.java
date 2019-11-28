@@ -105,6 +105,7 @@ public class FragmentAddQuestion extends Fragment {
                 String q4 = et_q4.getText().toString();
 
                 ArrayList<Question> questions = new ArrayList<>();
+
                 Question question1 = new Question(0,q1,status1);
                 Question question2 = new Question(1,q2,status2);
                 Question question3 = new Question(2,q3,status3);
