@@ -41,6 +41,32 @@
             android:textSize="25dp"
             />
 
+        <RadioGroup
+            android:id="@+id/groupradio"
+            android:layout_marginLeft="10dp"
+            android:layout_width="fill_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/activ"
+                android:text="active"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/inactiv"
+                android:text="inactive"
+                android:fontFamily="cursive"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"/>
+
+        </RadioGroup>
         <Button
             android:id="@+id/bt_add_group"
             android:layout_width="match_parent"
