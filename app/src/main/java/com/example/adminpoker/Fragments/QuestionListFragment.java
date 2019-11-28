@@ -31,8 +31,6 @@ public class QuestionListFragment extends Fragment {
     QuestionListAdapter adapter;
     RecyclerView recyclerView;
     public onClickInterface onclickInterface;
-
-
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
@@ -41,25 +39,21 @@ public class QuestionListFragment extends Fragment {
     public void Oncreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-
-
-        final View view = inflater.inflate(R.layout.fragment_questionlist, container, false);
-
-        Bundle bundle = this.getArguments();
-        final  String groupid = bundle.getString("groupid");
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         firebaseDatabase = firebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+        final View view = inflater.inflate(R.layout.fragment_questionlist, container, false);
+        Bundle bundle = this.getArguments();
+        final  String groupid = bundle.getString("groupid");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Group g = dataSnapshot.child(groupid).getValue(Group.class);
                 final ArrayList<Question> q1 = g.getQuestions();
+
+
 
                 onclickInterface = new onClickInterface() {
                     @Override
@@ -68,25 +62,36 @@ public class QuestionListFragment extends Fragment {
                         AnswerListFragment Afragment = new AnswerListFragment();
 
                         final Bundle bundle = new Bundle();
-                        if (q1.get(pos).getUsers()!=null) {
-                            ArrayList<User> users = q1.get(pos).getUsers();
-                            ArrayList<String> userAnswers = new ArrayList<>();
 
-                            for (User u : users) {
-                                String value = u.getName() + ": " + u.getAnswer();
+                        if (q1.get(pos).getUsers()!=null){
+                            ArrayList <User> users = q1.get(pos).getUsers();
+                            ArrayList <String> userAnswers = new ArrayList<>();
+
+
+
+                            for (User u : users)
+                            {
+                                String value = u.getName() +": " + u.getAnswer();
                                 userAnswers.add(value);
                             }
                             bundle.putStringArrayList("answers", userAnswers);
 
+
+
                         }
-                        else
-                        {
+                        else {
                             ArrayList<String> userAnswers = new ArrayList<>();
                             bundle.putStringArrayList("answers", userAnswers);
+
                         }
                         Afragment.setArguments(bundle);
 
-                        Fragmentchange(Afragment);
+
+                        FragmentTransaction fr = getFragmentManager().beginTransaction();
+                        fr.replace(R.id.container, Afragment);
+                        fr.addToBackStack(null);
+                        fr.commit();
+
 
                     }
                 };
@@ -109,18 +114,7 @@ public class QuestionListFragment extends Fragment {
             }
         });
 
-
-
-
-        return  view;
+        return view;
     }
 
-    public void Fragmentchange (Fragment fragment)
-    {
-
-        FragmentTransaction fr = getFragmentManager().beginTransaction();
-        fr.replace(R.id.container, fragment);
-        fr.addToBackStack(null);
-        fr.commit();
-    }
 }
