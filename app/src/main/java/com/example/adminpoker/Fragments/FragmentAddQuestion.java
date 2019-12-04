@@ -98,7 +98,6 @@ public class FragmentAddQuestion extends Fragment {
 
 
         //kivesszuk a masik fragment altal kuldott group adatokat
-
         Bundle bundle = this.getArguments();
         final String group_id = bundle.getString("group_id");
         final Boolean group_status = bundle.getBoolean("status");
@@ -128,13 +127,9 @@ public class FragmentAddQuestion extends Fragment {
 
                 // group objektum letrehozasa
                 Group group = new Group(group_id,group_status,questions);
-
                 // hozza adjuk az adatbazishoz
                 databaseReference.child(group.getId()).setValue(group);
-
                 Toast.makeText(getContext(),"Added Successfully",Toast.LENGTH_LONG).show();
-
-
                 Log.d("GROUP", group.toString());
             }
         });

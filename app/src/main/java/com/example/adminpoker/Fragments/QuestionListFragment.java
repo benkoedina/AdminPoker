@@ -56,7 +56,6 @@ public class QuestionListFragment extends Fragment {
                 final ArrayList<Question> q1 = g.getQuestions();
 
 
-
                 onclickInterface = new onClickInterface() {
                     @Override
                     public void setClick(int pos) {
@@ -71,15 +70,12 @@ public class QuestionListFragment extends Fragment {
                             ArrayList <String> userAnswers = new ArrayList<>();
                             //lekerjuk az adott kerdesre a valaszokat es azt adjuk tovabb
 
-
                             for (User u : users)
                             {
                                 String value = u.getName() +": " + u.getAnswer();
                                 userAnswers.add(value);
                             }
                             bundle.putStringArrayList("answers", userAnswers);
-
-
 
                         }
                         else {
@@ -89,7 +85,6 @@ public class QuestionListFragment extends Fragment {
 
                         }
                         Afragment.setArguments(bundle);
-
 //fragment valtas
                         FragmentTransaction fr = getFragmentManager().beginTransaction();
                         fr.replace(R.id.container, Afragment);
@@ -104,7 +99,6 @@ public class QuestionListFragment extends Fragment {
                 recyclerView = (RecyclerView)view.findViewById(R.id.questionrecyclerView);
                 recyclerView.addItemDecoration(new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL));
                 adapter = new QuestionListAdapter(q1,getContext(), onclickInterface);
-
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                 recyclerView.setAdapter(adapter);
